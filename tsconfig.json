@@ -16,6 +16,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-preload-module": [
+        "dist/ngx-preload-module"
+      ],
+      "ngx-preload-module/*": [
+        "dist/ngx-preload-module/*"
+      ]
+    }
   }
 }

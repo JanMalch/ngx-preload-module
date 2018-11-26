@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {PreloadModuleResult} from 'ngx-preload-module';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ngx-preload-module-app';
+  logs = [];
+
+  log(ref: PreloadModuleResult | undefined) {
+    console.log('ref:', ref);
+    this.logs.push(`${performance.now()} :: Finished loading module. ${!!ref ?
+      ref.moduleRef.instance.constructor.name : '<Module already loaded>'}`);
+  }
+
+  now() {
+    this.logs.push(`${performance.now()} :: Started loading module.`);
+    return false;
+  }
 }
