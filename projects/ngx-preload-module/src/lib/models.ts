@@ -5,6 +5,7 @@ export interface PreloadMap {
 }
 
 export interface PreloadModuleResult {
+  usedPath: string;
   factory: NgModuleFactory<any>;
   moduleRef: NgModuleRef<any>;
 }

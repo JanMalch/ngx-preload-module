@@ -4,5 +4,21 @@
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JanMalch/ngx-preload-module.git"
+  },
+  "keywords": [
+    "Angular",
+    "TypeScript",
+    "Utility",
+    "PWA",
+    "Preload"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JanMalch/ngx-preload-module/issues"
+  },
+  "homepage": "https://janmalch.github.io/ngx-preload-module/"
 }

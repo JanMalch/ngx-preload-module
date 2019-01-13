@@ -12,7 +12,10 @@ import {NgxPreloadModuleModule} from 'ngx-preload-module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxPreloadModuleModule.forRoot({'BarModule': 'src/app/bar/bar.module#BarModule'})
+    NgxPreloadModuleModule.forRoot({
+      BarModule: 'src/app/bar/bar.module#BarModule',
+      Foobar: 'src/app/foobar/foobar.module#FoobarModule'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -70,7 +70,8 @@ To load a module on a hover event you can use the following template:
 <button preloadModule #myPreloader="preloadModule"
         (result)="log($event)"
         (mouseover)="myPreloader.load('BarModule')">
-  Foo (mouseover)</button>
+  Foo (mouseover)
+</button>
 ```
 
 The `(result)` is the output of the services `load` observable.

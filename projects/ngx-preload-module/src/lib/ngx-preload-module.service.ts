@@ -16,15 +16,21 @@ export class NgxPreloadModuleService {
     @Inject(PRELOAD_MODULE_PATHS) private paths: PreloadMap) {
   }
 
-  load(pathModuleTemplate: string): Observable<PreloadModuleResult> {
-    const path = this.paths[pathModuleTemplate] || pathModuleTemplate;
+  load(modulePath: string): Observable<PreloadModuleResult> {
+    const path = this.paths[modulePath] || modulePath;
     if (this.moduleSet.has(path)) {
       return of(undefined);
     }
     this.moduleSet.add(path);
-    return from(this.loader.load(path).then(moduleFactory =>
-      ({moduleRef: moduleFactory.create(this.injector), factory: moduleFactory})
-    ));
+    return from(
+      this.loader.load(path)
+        .then(moduleFactory => ({
+            moduleRef: moduleFactory.create(this.injector),
+            factory: moduleFactory,
+            usedPath: modulePath
+          })
+        )
+    );
   }
 }
 

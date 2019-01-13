@@ -1,13 +1,53 @@
 <h1>
   Welcome to ngx-preload-module
 </h1>
-<div><a href="https://github.com/JanMalch/ngx-preload-module">GitHub</a>&nbsp;&nbsp;
+<p>
+  <a href="https://github.com/JanMalch/ngx-preload-module">GitHub</a>&nbsp;&nbsp;
   <a href="https://npmjs.com/package/ngx-preload-module">npm</a>&nbsp;&nbsp;
-  <a href="https://github.com/JanMalch/ngx-preload-module/blob/master/src/app/app.component.html">Demo source</a>
-</div>
-<p>Make sure to view network traffic in Dev Tools.</p>
-<ng-container preloadModule #preloader="preloadModule" (result)="log($event)"></ng-container>
-<button (mouseover)="now() || preloader.load('src/app/foo/foo.module#FooModule')">Foo (mouseover)</button>
-<button (click)="now() || preloader.load('BarModule')">Bar (click)</button>
+  <a href="https://github.com/JanMalch/ngx-preload-module/blob/master/src/app/app.component.html">Demo source</a>&nbsp;&nbsp;
+  <span>Make sure to view network traffic in Dev Tools.</span>
+</p>
 
-<pre>- {{ logs.join("\n- ")}}</pre>
+<table>
+  <thead>
+  <tr>
+    <th>
+      <button preloadModule #fooPreloader="preloadModule"
+              (result)="fooLog($event)"
+              (mouseover)="fooNow() || fooPreloader.load('src/app/foo/foo.module#FooModule')">
+        Foo (mouseover)
+      </button>
+    </th>
+    <th>
+      <button preloadModule #barPreloader="preloadModule"
+              (result)="barLog($event)"
+              (click)="barNow() || barPreloader.load('BarModule')">
+        Bar (click)
+      </button>
+    </th>
+    <th>
+      <button preloadModule #perfPreloader="preloadModule"
+              [disabled]="reactionTestFinished"
+              (result)="perfFinished($event)"
+              (mouseover)="fooBarHover() && perfPreloader.load('Foobar');"
+              (click)="fooBarClick()">Click me!
+      </button>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      <pre>- {{ fooLogs.join("\n- ")}}</pre>
+    </td>
+    <td>
+      <pre>- {{ barLogs.join("\n- ")}}</pre>
+    </td>
+    <td [innerHTML]="getPerformanceResult()">
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+

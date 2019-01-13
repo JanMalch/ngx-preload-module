@@ -28,7 +28,8 @@
             "scripts": [],
             "lazyModules": [
               "src/app/foo/foo.module",
-              "src/app/bar/bar.module"
+              "src/app/bar/bar.module",
+              "src/app/foobar/foobar.module"
             ]
           },
           "configurations": {
