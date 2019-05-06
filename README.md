@@ -1,3 +1,5 @@
+>This libary was an experiment and has never been released. Use established library like [ngx-loadable](https://github.com/mohammedzamakhan/ngx-loadable) or [ngx-quicklink](https://github.com/mgechev/ngx-quicklink)
+
 [![npm version](https://badge.fury.io/js/ngx-preload-module.svg)](https://badge.fury.io/js/ngx-preload-module)
 
 # ngx-preload-module
